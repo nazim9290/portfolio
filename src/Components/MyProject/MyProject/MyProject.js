@@ -118,109 +118,112 @@ function MyProject() {
     setProjects(filtered);
   }, [filter]);
   return (
-    <div className="project-filter" id="projects">
-      <div
-        className="portfolio__labels btn-group"
-        role="group"
-        aria-label="Basic outlined example"
-      >
-        <button
-          type="button"
-          class="btn btn-outline-primary px-3 py-3"
-          active={filter === "all"}
-          onClick={() => setFilter("all")}
+    <>
+      <h3 className="fs-1 mb-2">My Project_</h3>
+      <div className="project-filter" id="projects">
+        <div
+          className="portfolio__labels btn-group"
+          role="group"
+          aria-label="Basic outlined example"
         >
-          All
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary px-5 py-3"
-          active={filter === "frontend"}
-          onClick={() => setFilter("frontend")}
-        >
-          Frontend
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary px-5 py-3"
-          active={filter === "mobile"}
-          onClick={() => setFilter("mobile")}
-        >
-          Mobile
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary px-5 py-3"
-          active={filter === "ux-ui"}
-          onClick={() => setFilter("ux-ui")}
-        >
-          UX/UI
-        </button>
-        <button
-          type="button"
-          class="btn btn-outline-primary px-5 py-3"
-          active={filter === "others"}
-          onClick={() => setFilter("others")}
-        >
-          Others
-        </button>
-      </div>
-      <div className="">
-        <div class="row row-cols-1 row-cols-md-3 g-2">
-          {projects.map((item) =>
-            item.filtered === true ? (
-              <div class="col mx-auto">
-                <div class="project-grid h-100 shadow rounded-3 my-3">
-                  <img
-                    src={item.img}
-                    alt=""
-                    className="img-fluid py-3"
-                    data-aos="zoom-in"
-                    data-aos-duration="500"
-                  />
+          <button
+            type="button"
+            class="btn btn-outline-primary px-3 py-3"
+            active={filter === "all"}
+            onClick={() => setFilter("all")}
+          >
+            All
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-5 py-3"
+            active={filter === "frontend"}
+            onClick={() => setFilter("frontend")}
+          >
+            Frontend
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-5 py-3"
+            active={filter === "mobile"}
+            onClick={() => setFilter("mobile")}
+          >
+            Mobile
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-5 py-3"
+            active={filter === "ux-ui"}
+            onClick={() => setFilter("ux-ui")}
+          >
+            UX/UI
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-5 py-3"
+            active={filter === "others"}
+            onClick={() => setFilter("others")}
+          >
+            Others
+          </button>
+        </div>
+        <div className="">
+          <div class="row row-cols-1 row-cols-md-3 g-2">
+            {projects.map((item) =>
+              item.filtered === true ? (
+                <div class="col mx-auto">
+                  <div class="project-grid h-100 shadow rounded-3 my-3">
+                    <img
+                      src={item.img}
+                      alt=""
+                      className="img-fluid py-3"
+                      data-aos="zoom-in"
+                      data-aos-duration="500"
+                    />
 
-                  <div
-                    className="project-details p-2"
-                    data-aos="fade-up"
-                    data-aos-duration="500"
-                  >
-                    <h3 className="project-card__title mt-md-0 mt-sm-5">
-                      {item.name}
-                    </h3>
-                    <p className="text-start mx-3">{item.date}</p>
-                    <ul className="my-item">
-                      {item.des.map((item) => (
-                        <li className="text-start">{item}</li>
-                      ))}
-                    </ul>
-                    <ul className="tags">
-                      {item.Technology.map((item) => (
-                        <li>{item}</li>
-                      ))}
-                    </ul>
-                    <div className="project-link">
-                      <a href={item?.website} target="_blank">
-                        <i class="fas fa-eye"></i> Live Code
-                      </a>
-                      <a href={item?.frontendGit} target="_blank">
-                        <i className="fas fa-code-branch"></i> Client Side
-                      </a>
-                      {item?.backendGit && (
-                        <a href={item?.backendGit} target="_blank">
-                          <i className="fa fa-github"></i> Server Side
+                    <div
+                      className="project-details p-2"
+                      data-aos="fade-up"
+                      data-aos-duration="500"
+                    >
+                      <h3 className="project-card__title mt-md-0 mt-sm-5">
+                        {item.name}
+                      </h3>
+                      <p className="text-start mx-3">{item.date}</p>
+                      <ul className="my-item">
+                        {item.des.map((item) => (
+                          <li className="text-start">{item}</li>
+                        ))}
+                      </ul>
+                      <ul className="tags">
+                        {item.Technology.map((item) => (
+                          <li>{item}</li>
+                        ))}
+                      </ul>
+                      <div className="project-link">
+                        <a href={item?.website} target="_blank">
+                          <i class="fas fa-eye"></i> Live Code
                         </a>
-                      )}
+                        <a href={item?.frontendGit} target="_blank">
+                          <i className="fas fa-code-branch"></i> Client Side
+                        </a>
+                        {item?.backendGit && (
+                          <a href={item?.backendGit} target="_blank">
+                            <i className="fa fa-github"></i> Server Side
+                          </a>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ) : (
-              ""
-            )
-          )}
+              ) : (
+                ""
+              )
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
